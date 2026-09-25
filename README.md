@@ -612,6 +612,8 @@ El proyecto ElectroCasa quedó implementado y versionado con los siguientes comp
 - orquestación mediante Databricks Jobs;
 - ejecución end-to-end satisfactoria;
 - monitoreo mediante historial de ejecuciones;
+- <img width="1705" height="977" alt="TrackingEnvios completo y validado de Bronze-Silver-Gold" src="https://github.com/user-attachments/assets/ee774a30-6d33-49b3-ada6-413bbfde429f" />
+
 - cómputo Serverless;
 - Databricks Asset Bundle con targets DEV y PROD;
 - despliegue mediante Databricks CLI;
