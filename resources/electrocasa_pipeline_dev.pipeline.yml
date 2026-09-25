@@ -1,0 +1,16 @@
+resources:
+  pipelines:
+    electrocasa_pipeline_dev:
+      name: electrocasa_pipeline_dev
+      configuration:
+        "spark.sql.ansi.enabled": "true"
+      libraries:
+        - glob:
+            include: ../src/electrocasa_pipeline_dev/transformations/**
+      catalog: electrocasa
+      channel: CURRENT
+      continuous: false
+      photon: true
+      root_path: ../src/electrocasa_pipeline_dev
+      schema: bronze
+      serverless: true

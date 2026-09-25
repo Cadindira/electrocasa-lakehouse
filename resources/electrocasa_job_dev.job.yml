@@ -1,0 +1,54 @@
+resources:
+  jobs:
+    electrocasa_job_dev:
+      name: electrocasa_job_dev
+      tasks:
+        - task_key: ejecutar_pipeline_lakehouse
+          disabled: false
+          email_notifications: {}
+          max_retries: 1
+          min_retry_interval_millis: 300000
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.electrocasa_pipeline_dev.id}
+          retry_on_timeout: false
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+        - task_key: validar_lakehouse
+          depends_on:
+            - task_key: ejecutar_pipeline_lakehouse
+          disable_auto_optimization: true
+          disabled: false
+          email_notifications: {}
+          max_retries: 0
+          min_retry_interval_millis: 900000
+          notebook_task:
+            notebook_path: ../src/electrocasa_job_dev/validacion_lakehouse_job.ipynb
+            source: WORKSPACE
+          retry_on_timeout: false
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+      description: |-
+        Orquestación del Lakehouse ElectroCasa en ambiente DEV.
+
+        Ejecuta el pipeline electrocasa_pipeline_dev y, al finalizar correctamente,
+        ejecuta el notebook validacion_lakehouse_job para validar automáticamente
+        los conteos y reglas principales de calidad de las capas Silver y Gold.
+      email_notifications:
+        on_failure:
+        - loayzaindira@gmail.com
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      schedule:
+        pause_status: UNPAUSED
+        quartz_cron_expression: 0 0 8 * * ?
+        timezone_id: America/Lima
+      tags:
+        "entorno": "dev"
+        "proyecto": "electrocasa"
+        "tipo": "lakehouse"
+      timeout_seconds: 0
+      webhook_notifications: {}
