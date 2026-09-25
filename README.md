@@ -612,9 +612,17 @@ El proyecto ElectroCasa quedó implementado y versionado con los siguientes comp
 - orquestación mediante Databricks Jobs;
 - ejecución end-to-end satisfactoria;
 - monitoreo mediante historial de ejecuciones;
-- <img width="1705" height="977" alt="TrackingEnvios completo y validado de Bronze-Silver-Gold" src="https://github.com/user-attachments/assets/ee774a30-6d33-49b3-ada6-413bbfde429f" />
-
 - cómputo Serverless;
 - Databricks Asset Bundle con targets DEV y PROD;
 - despliegue mediante Databricks CLI;
 - código y configuración versionados en GitHub.
+## 21. Evidencias del proyecto
+<img width="1702" height="737" alt="catalogo electrocasa" src="https://github.com/user-attachments/assets/e4c3cbb7-7726-4cdb-910c-2be91adb3e72" />
+
+<img width="1705" height="977" alt="TrackingEnvios completo y validado de Bronze-Silver-Gold" src="https://github.com/user-attachments/assets/ee774a30-6d33-49b3-ada6-413bbfde429f" />
+
+<img width="989" height="603" alt="Event Log de DEV" src="https://github.com/user-attachments/assets/31861061-4d64-4c01-ac9d-e4c7b88255b0" />
+
+<img width="1710" height="969" alt="electrocasa_pipeline_dev" src="https://github.com/user-attachments/assets/da951edf-30cb-4304-ac25-afc8fa0ad9b8" />
+
+
