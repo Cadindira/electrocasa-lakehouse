@@ -9,3 +9,34 @@ targets:
     default: true
     workspace:
       host: https://adb-7405612877623988.8.azuredatabricks.net
+
+  prod:
+    mode: production
+
+    workspace:
+      host: https://adb-7405612877623988.8.azuredatabricks.net
+      root_path: /Workspace/Users/loayzaindira@gmail.com/.bundle/${bundle.name}/${bundle.target}
+
+    run_as:
+      user_name: loayzaindira@gmail.com
+
+    permissions:
+      - user_name: loayzaindira@gmail.com
+        level: CAN_MANAGE
+
+    resources:
+      pipelines:
+        electrocasa_pipeline_dev:
+          name: electrocasa_pipeline_prod
+
+      jobs:
+        electrocasa_job_dev:
+          name: electrocasa_job_prod
+
+          schedule:
+            pause_status: PAUSED
+
+          tags:
+            entorno: prod
+            proyecto: electrocasa
+            tipo: lakehouse
